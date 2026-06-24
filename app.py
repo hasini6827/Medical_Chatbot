@@ -1,8 +1,13 @@
 from flask import Flask, request, jsonify, render_template
 from openai import OpenAI
-import config
+import os
+try:
+    import config
+    api_key = config.api_key
+except ImportError:
+    api_key = os.environ.get("OPENAI_API_KEY")
 app = Flask(__name__)
-client =OpenAI(api_key = config.api_key)
+client = OpenAI(api_key=api_key)
 chat_history =[]
 @app.route("/chat", methods=["POST"])
 def chat():
