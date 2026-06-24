@@ -1,7 +1,3 @@
 flask
-tensorflow-cpu==2.12.0
-numpy
-nltk
-scikit-learn
 gunicorn
 openai
